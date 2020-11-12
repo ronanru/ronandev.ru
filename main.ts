@@ -8,8 +8,8 @@ const resetCanvas = () => {
    canvas.height = window.innerHeight * mult;
 }
 
-resetCanvas()
-window.onresize = resetCanvas
+resetCanvas();
+window.onresize = resetCanvas;
 
 setInterval(() => {
    let x = Math.floor(Math.random() * canvas.offsetWidth);
@@ -56,9 +56,7 @@ setInterval(() => {
       }
    }
    document.querySelector('main p').innerHTML = msg1 + '<br>' + msg2;
-}, 100)
-
-window.onload = () => document.getElementsByTagName('main')[0].style.opacity = '1';
+}, 100);
 
 function setChar(msg: string, i: number, char: string = Math.random().toString(36)[10]) {
    return msg.substr(0, i) + char + msg.substr(i + 1);
