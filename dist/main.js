@@ -56,9 +56,7 @@ setInterval(function () {
     }
     document.querySelector('main p').innerHTML = msg1 + '<br>' + msg2;
 }, 100);
-setTimeout(function () {
-    document.getElementsByTagName('main')[0].style.opacity = '1';
-}, 1000);
+window.onload = function () { return document.getElementsByTagName('main')[0].style.opacity = '1'; };
 function setChar(msg, i, char) {
     if (char === void 0) { char = Math.random().toString(36)[10]; }
     return msg.substr(0, i) + char + msg.substr(i + 1);
