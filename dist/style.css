@@ -9,36 +9,38 @@
   }
 
   main p {
-    font-size: 1.5rem !important;
+    font-size: 1.5em !important;
   }
 }
 body {
   margin: 0;
-  overflow-x: hidden;
+  overflow: hidden;
   background-color: #050505;
 }
 
 main {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
-  bottom: 0;
-  font-family: VHS OSD Mono, Arial, sans-serif;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.info {
+  font-family: Hack, "Fira Code", "Fira Mono", "Ubuntu Mono", Consolas, "Courier New", Courier, monospace;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   height: 100vh;
   color: white;
+  scroll-snap-align: start;
 }
-main p {
-  font-size: 4rem;
+.info p {
+  font-size: 4em;
   margin: 0;
 }
-main a {
-  cursor: pointer;
+.info svg {
+  height: 5em;
+  width: 5em;
 }
 
 canvas {
@@ -51,30 +53,30 @@ canvas {
   height: 110vh;
 }
 
-div {
-  margin-top: 100vh;
+.links {
   min-height: 100vh;
   background-color: white;
   padding: 5% 20%;
-  font-size: 2rem;
+  font-size: 2em;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Fira Sans, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  scroll-snap-align: start;
 }
-div a {
+.links a {
   display: flex;
   align-items: center;
   color: black;
   text-decoration: none;
   transition: font-weight 0.25s ease-in-out;
 }
-div a svg {
-  margin-right: 1rem;
+.links a svg {
+  margin-right: 1em;
   transition: transform 0.25s ease-in-out;
 }
-div a:hover {
+.links a:hover {
   font-weight: bold;
 }
-div a:hover svg {
+.links a:hover svg {
   opacity: 0.5;
   transform: scale(1.5) rotate(-20deg);
 }
@@ -86,3 +88,5 @@ div a:hover svg {
 .vk:hover {
   color: #2787F5 !important;
 }
+
+/*# sourceMappingURL=style.css.map */
