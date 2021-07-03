@@ -1,12 +1,10 @@
 {
   "compilerOptions": {
     "target": "es2017",
-    "module": "commonjs",
+    "module": "esnext",
     "outDir": "./dist",
-    "moduleResolution": "node",
     "removeComments": true,
-    "sourceMap": true,
-    "esModuleInterop": true
+    "sourceMap": true
   },
   "include": ["./src/**/*.ts"]
 }

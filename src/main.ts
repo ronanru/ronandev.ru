@@ -1,10 +1,10 @@
 // BACKGROUND
-const canvas = <HTMLCanvasElement>document.getElementsByTagName('canvas')[0],
-  ctx = canvas.getContext('2d');
+const canvas = <HTMLCanvasElement>document.getElementsByTagName('canvas')[0];
+var ctx = canvas.getContext('2d');
 
 const resetCanvas = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  const mult = 1;
+  const mult = window.innerWidth > 900 ? 1.1 : 1;
   canvas.width = window.innerWidth * mult;
   canvas.height = window.innerHeight * mult;
 };
@@ -12,15 +12,16 @@ const resetCanvas = () => {
 resetCanvas();
 window.onresize = resetCanvas;
 
-setInterval(() => {
-  let x = Math.floor(Math.random() * canvas.offsetWidth);
-  let y = Math.floor(Math.random() * canvas.offsetHeight);
-  ctx.fillStyle = '#fafafa';
+const setPixel = (x: number, y: number, color: string): void => {
+  ctx.fillStyle = color;
   ctx.fillRect(x, y, 1, 1);
-  setTimeout(() => {
-    ctx.fillStyle = '#050505';
-    ctx.fillRect(x, y, 1, 1);
-  }, 15000);
+};
+
+setInterval(() => {
+  const x = Math.floor(Math.random() * canvas.offsetWidth);
+  const y = Math.floor(Math.random() * canvas.offsetHeight);
+  setPixel(x, y, '#fafafa');
+  setTimeout(() => setPixel(x, y, '#050505'), 15000);
 }, 75);
 
 window.onmousemove = e => {
@@ -45,6 +46,4 @@ setInterval(() => {
   document.querySelector('main p').innerHTML = msg.join('<br>');
 }, 100);
 
-function setChar(msg: string, i: number, char: string) {
-  return msg.substr(0, i) + char + msg.substr(i + 1);
-}
+const setChar = (msg: string, i: number, char: string): string => msg.substr(0, i) + char + msg.substr(i + 1);
