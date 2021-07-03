@@ -1,5 +1,5 @@
 const canvas = document.getElementsByTagName('canvas')[0];
-var ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d');
 const resetCanvas = () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     const mult = window.innerWidth > 900 ? 1.1 : 1;
@@ -13,8 +13,8 @@ const setPixel = (x, y, color) => {
     ctx.fillRect(x, y, 1, 1);
 };
 setInterval(() => {
-    let x = Math.floor(Math.random() * canvas.offsetWidth);
-    let y = Math.floor(Math.random() * canvas.offsetHeight);
+    const x = Math.floor(Math.random() * canvas.offsetWidth);
+    const y = Math.floor(Math.random() * canvas.offsetHeight);
     setPixel(x, y, '#fafafa');
     setTimeout(() => setPixel(x, y, '#050505'), 15000);
 }, 75);

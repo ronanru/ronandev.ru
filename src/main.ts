@@ -1,6 +1,6 @@
 // BACKGROUND
 const canvas = <HTMLCanvasElement>document.getElementsByTagName('canvas')[0];
-var ctx = canvas.getContext('2d');
+const ctx = canvas.getContext('2d');
 
 const resetCanvas = () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
